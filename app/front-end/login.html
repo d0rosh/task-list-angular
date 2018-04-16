@@ -1,0 +1,7 @@
+<h2>Login</h2>
+<p style="color: red">{{ctrl.message}}</p>
+<form ng-model="ctrl.request" ng-submit="ctrl.save(ctrl.request)">
+    <input ng-model="ctrl.request.login"><br>
+    <input ng-model="ctrl.request.password" type="password"><br>
+    <button type="submit">Sign in</button>
+</form>

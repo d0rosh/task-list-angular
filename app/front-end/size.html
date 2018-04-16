@@ -1,0 +1,4 @@
+<button class="btn btn-outline-primary btn-sm" ng-click="triggerMenu()">Page size: {{size}}</button>
+<div ng-class="isDropdownVisible ? 'dropdown-menu show' : 'dropdown-menu'">
+    <a ng-repeat="s in sizes" ng-class="s==size ? 'dropdown-item active' : 'dropdown-item'" href="#" ng-click="changePageSize(s, $event)">{{s}}</a>
+</div>

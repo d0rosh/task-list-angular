@@ -1,0 +1,87 @@
+<h2>Item</h2>
+<div class="row">
+    <div class="col-12">
+        <form>
+            <div class="form-group row">
+                <label class="col-form-label col-2" for="category">Category:</label>
+                <div class="col-10">
+                    <select ng-options="category as category.name for category in ctrl.categories track by category._id" class="form-control" id="category" ng-model="ctrl.currentItem.category"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-2" for="name">Name:</label>
+                <div class="col-10">
+                    <input class="form-control" id="name" ng-model="ctrl.currentItem.name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-2" for="price">Price:</label>
+                <div class="col-10">
+                    <input class="form-control" id="price" ng-model="ctrl.currentItem.price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-2" for="size">Size:</label>
+                <div class="col-10">
+                    <input class="form-control" id="size" ng-model="ctrl.currentItem.size">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-10 ml-auto">
+                    <button type="button" class="btn btn-outline-success btn-sm" ng-click="ctrl.save()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <div class="row">
+            <div class="col-12">
+                <input class="form-control" ng-model="ctrl.search" placeholder="Search">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input class="form-control" ng-model="ctrl.min" placeholder="min price">
+            </div>
+            <div class="col-6">
+                <input class="form-control" ng-model="ctrl.max" placeholder="max price">
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <table class="table table-bordered">
+            <tr>
+                <th class="text-center">
+                    Category
+                </th>
+                <th class="text-center">
+                    Name
+                </th>
+                <th class="text-center">
+                    Price
+                </th>
+                <th class="text-center">
+                    Size
+                </th>
+                <th class="text-center">
+                    Options
+                </th>
+            </tr>
+            <tr ng-repeat="itemElem in ctrl.items | searchItem: item.search | minMaxPrice: item.min: ctrl.max | limitTo: ctrl.size: (ctrl.page-1)*ctrl.size">
+                <td>{{itemElem.category.name}}</td>
+                <td>{{itemElem.name}}</td>
+                <td>{{itemElem.price | uah}}</td>
+                <td>{{itemElem.size}}</td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" ng-click="ctrl.update(itemElem)">Update</button>
+                    <button class="btn btn-outline-danger btn-sm" ng-click="ctrl.delete(itemElem._id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+        <lgs-pagination ng-model="ctrl.page" size="ctrl.size" total-pages="ctrl.pageCount"></lgs-pagination>
+        <lgs-size ng-model="ctrl.size" sizes="[1, 5, 10]"></lgs-size>
+        <lgs-sort array="ctrl.sorts" asc="ctrl.ascSort(field)" desc="ctrl.descSort(field)"></lgs-sort>
+    </div>
+</div>

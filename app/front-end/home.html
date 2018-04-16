@@ -1,0 +1,27 @@
+<h2>Home</h2>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <tr>
+                <th class="text-center">
+                    Category
+                </th>
+                <th class="text-center">
+                    Name
+                </th>
+                <th class="text-center">
+                    Price
+                </th>
+                <th class="text-center">
+                    Size
+                </th>
+            </tr>
+            <tr ng-repeat="itemElem in ctrl.items">
+                <td>{{itemElem.category.name}}</td>
+                <td>{{itemElem.name}}</td>
+                <td>{{itemElem.price | uah}}</td>
+                <td>{{itemElem.size}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

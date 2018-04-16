@@ -1,0 +1,4 @@
+<button class="btn btn-outline-primary btn-sm" ng-click="triggerMenu()">Sort: {{current.label}}</button>
+<div ng-class="isDropdownVisible ? 'dropdown-menu show' : 'dropdown-menu'">
+    <a ng-repeat="sort in data" ng-class="current==sort ? 'dropdown-item active' : 'dropdown-item'" href="#" ng-click="changeSort(sort, $event)">{{sort.label}}</a>
+</div>

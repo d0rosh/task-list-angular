@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="max-age=10, must-revalidate" />
+        <script src="/angular.min.js"></script>
+        <script src="/angular-route.min.js"></script>
+        <script src="main.js"></script>
+        <script src="directives.js"></script>
+        <script src="service.js"></script>
+        <script src="home.js"></script>
+        <script src="item.js"></script>
+        <script src="category.js"></script>
+        <script src="registration.js"></script>
+        <script src="login.js"></script>
+        <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+<!--        <base href="/">-->
+    </head>
+    <body>
+        <h2>Header</h2>
+        <a href="#!/">Home</a>
+        <a href="#!/item">Items</a>
+        <a href="#!/category">Category</a>
+        <a href="#!/registration">Registration</a>
+        <a href="#!/login">Login</a>
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
+        <h2>Footer</h2>
+    </body>
+</html>

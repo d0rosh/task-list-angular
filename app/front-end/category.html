@@ -1,0 +1,15 @@
+<h2>Category</h2>
+<div>
+    <form>
+        <input ng-model="ctrl.currentCategory.name">
+        <button ng-click="ctrl.save()">Save</button>
+        <button ng-click="ctrl.cancel()">Cancel</button>
+    </form>
+</div>
+<ul>
+    <li ng-repeat="category in ctrl.categories">
+        {{category.name}}
+        <button ng-click="ctrl.update(category)">update</button>
+        <button ng-click="ctrl.delete(category._id)">delete</button>
+    </li>
+</ul>
